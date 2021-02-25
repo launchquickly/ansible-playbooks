@@ -1,0 +1,30 @@
+---
+- name: Setup and configure git
+  hosts: 127.0.0.1
+  connection: local
+
+  vars_prompt:
+    - name: "user_email"
+      prompt: "Enter the email to use as your commit email address"
+
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: true
+      become: true
+
+    - name: Set user.name
+      git_config:
+        name: user.name
+        value: "{{ ansible_user }}"
+        scope: global
+      become: false
+    
+    - name: Set user.email
+      git_config:
+        name: user.email
+        value: "{{ user_email }}"
+        scope: global
+      become: false

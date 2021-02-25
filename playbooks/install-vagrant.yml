@@ -1,0 +1,27 @@
+---
+- name: Install Vagrant and Virtualbox
+  hosts: 127.0.0.1
+  connection: local
+
+  vars:
+    vagrant_version: 2.2.14
+
+  tasks:
+    - name: Install virtualbox
+      apt:
+        name: virtualbox
+        state: present
+        update_cache: true
+      become: true
+
+    - name: Download Vagrant {{ vagrant_version }}
+      get_url:
+        url: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb
+        dest: /tmp
+        checksum: sha256:https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_SHA256SUMS
+      become: true
+
+    - name: Install Vagrant .deb package
+      apt:
+        deb: /tmp/vagrant_{{ vagrant_version }}_x86_64.deb
+      become: true

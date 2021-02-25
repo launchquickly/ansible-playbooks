@@ -1,0 +1,15 @@
+---
+- name: Checkout git repositories
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Checkout launchquickly/ansible-playbooks
+      git:
+        repo: git@github.com:launchquickly/ansible-playbooks.git
+        accept_hostkey: yes
+        dest: /home/{{ ansible_user }}/src/ansible-playbooks
+        clone: yes
+        update: no
+      become: false
+
