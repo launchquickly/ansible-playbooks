@@ -1,0 +1,16 @@
+---
+- name: Install Vagrant and Virtualbox
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Download Chrome 
+      get_url:
+        url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        dest: /tmp
+      become: true
+
+    - name: Install Chrome .deb package
+      apt:
+        deb: /tmp/google-chrome-stable_current_amd64.deb
+      become: true
