@@ -4,8 +4,13 @@
   connection: local
 
   vars_prompt:
-    - name: "user_email"
-      prompt: "Enter the email to use as your commit email address"
+   - name: "user_name"
+     prompt: "Enter git username"
+     private: no
+
+   - name: "user_email"
+     prompt: "Enter the email to use as your commit email address"
+     private: no
 
   tasks:
     - name: Install git
@@ -18,7 +23,7 @@
     - name: Set user.name
       git_config:
         name: user.name
-        value: "{{ ansible_user }}"
+        value: "{{ user_name }}"
         scope: global
       become: false
     
