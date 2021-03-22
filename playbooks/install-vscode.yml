@@ -10,3 +10,8 @@
         classic: yes
         state: present
       become: true
+
+    - name: Install VS Code remote-ssh extension
+      shell:
+        cmd: code --install-extension ms-vscode-remote.remote-ssh
+      become: false
