@@ -1,0 +1,12 @@
+---
+- name: Install VS Code
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Install VS Code
+      snap:
+        name: code
+        classic: yes
+        state: present
+      become: true
