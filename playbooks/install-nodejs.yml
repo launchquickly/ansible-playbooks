@@ -1,5 +1,5 @@
 ---
-- name: Install Vagrant and Virtualbox
+- name: Install Node.js and configure for ansible user
   hosts: 127.0.0.1
   connection: local
 
@@ -33,5 +33,26 @@
         state: absent
       become: true
 
+    - name: Add Node.js location to ansible user's PATH
+      lineinfile:
+        path: /home/{{ ansible_user }}/.profile
+        line: "export PATH=/usr/local/lib/nodejs/node-{{ nodejs_version }}-linux-x64/bin:$PATH"
+      become: false
 
+    - name: Create npm global directory for ansible user to avoid permission issues with global installs
+      file:
+        path: /home/{{ ansible_user }}/.npm-global
+        state: directory
+        mode: '0755'
+      become: false
 
+    - name: Configure npm directory location
+      shell:
+        cmd: npm config set prefix '~/.npm-global'
+      become: false
+
+    - name: Add npm global directory to ansible user's PATH
+      lineinfile:
+        path: /home/{{ ansible_user }}/.profile
+        line: "export PATH=~/.npm-global/bin:$PATH"
+      become: false 
