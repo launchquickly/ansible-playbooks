@@ -1,0 +1,29 @@
+---
+- name: Install nvm(node version manager)
+  hosts: 127.0.0.1
+  connection: local
+
+  vars:
+    nodejs_version: 12.18.2
+    nvm_version: v0.37.2
+
+  tasks:
+    - name: Download the nvm install script
+      get_url: 
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_version }}/install.sh 
+        dest: /tmp
+        mode: u+rwx
+      become: false
+
+    - name: Execute the nvm install script
+      shell: 
+        cmd: bash install.sh 
+        chdir: /tmp 
+        executable: /bin/bash
+      become: false
+
+    - name: Delete the nvm install script
+      file:
+        path: /tmp/install.sh
+        state: absent
+      become: false

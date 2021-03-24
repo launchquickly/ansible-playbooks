@@ -1,7 +1,7 @@
 # ansible-playbooks
 Ansible playbook collection for configuring and managing Ubuntu desktop and servers.
 
-## Pre-requisites
+## Prerequisites
 
 These ansible playbooks are intended to be executed on Ubuntu. They have been tested on Ubuntu 20.04.
 
@@ -45,6 +45,7 @@ BECOME password:
 | generate-ssh-key | Generate SSH id_rsa key with passphrase |
 | install-chrome | Installs chrome web browser |
 | install-nodejs | Installs Node.js and configures npm for user running command |
+| install-nvm | Installs nvm (node version manager) |
 | install-vagrant | Installs vagrant and virtualbox |
 | install-vscode | Installs VS Code with remote-ssh extension |
 | setup-git | Installs git and configures user.name and user.email |
