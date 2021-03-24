@@ -1,10 +1,10 @@
 ---
-- name: Install nvm(node version manager)
+- name: Install nvm(node version manager) and use it to install Node.js
   hosts: 127.0.0.1
   connection: local
 
   vars:
-    nodejs_version: 12.18.2
+    nodejs_version: 14.16.0
     nvm_version: v0.37.2
 
   tasks:
@@ -26,4 +26,21 @@
       file:
         path: /tmp/install.sh
         state: absent
+      become: false
+
+    - name: Install Node.js {{ nodejs_version }}
+      shell:
+        cmd: . {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install {{ nodejs_version }}
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.nvm/versions/node/v{{ nodejs_version }}"
+      become: false
+
+    - name: Set Node.js {{ nodejs_version }} as the default
+      shell:
+        cmd: . {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm alias default {{ nodejs_version }}
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
       become: false

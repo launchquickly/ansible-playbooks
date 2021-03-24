@@ -45,7 +45,7 @@ BECOME password:
 | generate-ssh-key | Generate SSH id_rsa key with passphrase |
 | install-chrome | Installs chrome web browser |
 | install-nodejs | Installs Node.js and configures npm for user running command |
-| install-nvm | Installs nvm (node version manager) |
+| install-nvm | Installs nvm (node version manager) and Node.js |
 | install-vagrant | Installs vagrant and virtualbox |
 | install-vscode | Installs VS Code with remote-ssh extension |
 | setup-git | Installs git and configures user.name and user.email |
