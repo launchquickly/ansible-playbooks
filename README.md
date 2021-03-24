@@ -6,7 +6,7 @@ Ansible playbook collection for configuring and managing Ubuntu desktop and serv
 These ansible playbooks are intended to be executed on Ubuntu. They have been tested on Ubuntu 20.04.
 
 
-## Installation
+## Setup
 
 You must install ansible if it is not already installed:
 
