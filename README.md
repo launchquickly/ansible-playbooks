@@ -43,11 +43,11 @@ BECOME password:
 | Playbook | Description | Versions |
 | --- | --- | --- |
 | checkout-git-repositories | Checkout git repositories | |
-| generate-ssh-key | Generate SSH id_rsa key with passphrase | |
 | install-chrome | Installs chrome web browser | |
 | install-vagrant | Installs vagrant and virtualbox | |
 | install-vscode | Installs VS Code with remote-ssh extension | |
 | git-setup | Installs git and configures user.name and user.email |                    |
+|           | Generate SSH id_rsa key with passphrase              |                    |
 | aws-setup | Installs AWS CLI                                     | v2                 |
 |           | Installs nvm (node version manager) and Node.js      | v0.38.0 & v14.16.1 |
 |           | Installs AWS CDK                                     | 1.101.0            |
