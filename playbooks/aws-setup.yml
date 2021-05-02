@@ -6,3 +6,4 @@
   roles:
     - { role: aws-cli }
     - { role: nodejs }
+    - { role: aws-cdk }
