@@ -45,13 +45,13 @@ BECOME password:
 | checkout-git-repositories | Checkout git repositories |
 | generate-ssh-key | Generate SSH id_rsa key with passphrase |
 | install-aws-cdk | Installs AWS CDK |
-| install-aws-cli | Installs AWS CLI v2 |
 | install-chrome | Installs chrome web browser |
 | install-nodejs | Installs Node.js and configures npm for user running command |
 | install-nvm | Installs nvm (node version manager) and Node.js |
 | install-vagrant | Installs vagrant and virtualbox |
 | install-vscode | Installs VS Code with remote-ssh extension |
 | setup-git | Installs git and configures user.name and user.email |
+| aws-setup | Installs AWS CLI v2 |
 
 
 ## TODO

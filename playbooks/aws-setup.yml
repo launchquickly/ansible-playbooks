@@ -1,0 +1,7 @@
+---
+
+- name: AWS Setup
+  hosts: localhost
+
+  roles:
+    - { role: aws-cli }

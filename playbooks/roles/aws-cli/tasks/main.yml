@@ -1,0 +1,32 @@
+- name: Download AWS CLI version 2 zip
+  get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp/awscliv2.zip
+    mode: u+rwx
+  become: false
+
+- name: Unzip awscliv2.zip
+  unarchive:
+    src: /tmp/awscliv2.zip
+    dest: /tmp
+  become: false
+
+- name: Install AWS CLI
+  shell:
+    cmd: /tmp/aws/install --update
+  args:
+    executable: /bin/bash
+    chdir: /tmp
+  become: true
+
+- name: Delete awscliv2.zip file
+  file:
+    path: /tmp/awscliv2.zip
+    state: absent
+  become: false
+
+- name: Delete /tmp/aws
+  file:
+    path: /tmp/aws
+    state: absent
+  become: false
