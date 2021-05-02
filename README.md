@@ -40,23 +40,22 @@ BECOME password:
 
 ## Playbook manifest
 
-| Playbook | Description |
-| --- | --- |
-| checkout-git-repositories | Checkout git repositories |
-| generate-ssh-key | Generate SSH id_rsa key with passphrase |
-| install-aws-cdk | Installs AWS CDK |
-| install-chrome | Installs chrome web browser |
-| install-nodejs | Installs Node.js and configures npm for user running command |
-| install-nvm | Installs nvm (node version manager) and Node.js |
-| install-vagrant | Installs vagrant and virtualbox |
-| install-vscode | Installs VS Code with remote-ssh extension |
-| setup-git | Installs git and configures user.name and user.email |
-| aws-setup | Installs AWS CLI v2 |
+| Playbook | Description | Versions |
+| --- | --- | --- |
+| checkout-git-repositories | Checkout git repositories | |
+| generate-ssh-key | Generate SSH id_rsa key with passphrase | |
+| install-aws-cdk | Installs AWS CDK | |
+| install-chrome | Installs chrome web browser | |
+| install-vagrant | Installs vagrant and virtualbox | |
+| install-vscode | Installs VS Code with remote-ssh extension | |
+| setup-git | Installs git and configures user.name and user.email | |
+| aws-setup | Installs AWS CLI                                | v2                 |
+|           | Installs nvm (node version manager) and Node.js | v0.38.0 & v14.16.1 |
 
 
 ## TODO
 
-1. Investigate what a standard ansible directory structure might be
+1. TODO
 
 
 ## References
