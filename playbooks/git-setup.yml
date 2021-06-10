@@ -1,0 +1,21 @@
+---
+
+- name: Git Setup
+  hosts: localhost
+
+  vars_prompt:
+
+    - name: user_name
+      prompt: What is your git username?
+      private: no
+
+    - name: user_email
+      prompt: What is your git email?
+      private: no
+
+    - name: ssh_passphrase
+      prompt: What is your ssh key passphrase?
+
+  roles:
+    - { role: git }
+    - { role: ssh-key }

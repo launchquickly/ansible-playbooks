@@ -1,0 +1,6 @@
+Host github.com
+  User {{ user_name }}
+  Hostname ssh.github.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/{{ ssh_key_filename }}
+  Port 443

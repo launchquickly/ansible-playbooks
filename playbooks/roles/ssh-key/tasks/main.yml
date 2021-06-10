@@ -8,3 +8,9 @@
     ssh_key_passphrase: "{{ ssh_passphrase }}"
     force: no
   become: false
+
+- name: generate SSH config file
+  template:
+    src: config
+    dest: /home/{{ ansible_user }}/.ssh/config
+  become: false
