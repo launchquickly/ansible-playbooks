@@ -50,7 +50,7 @@ BECOME password:
 |           | Generate SSH id_rsa key with passphrase              |                    |
 |           | Generate SSH host file                               |                    |
 | aws-setup | Installs AWS CLI                                     | v2                 |
-|           | Installs nvm (node version manager) and Node.js      | v0.38.0 & v14.16.1 |
+|           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
 |           | Installs AWS CDK                                     | 1.101.0            |
 
 

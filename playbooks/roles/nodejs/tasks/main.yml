@@ -5,7 +5,7 @@
     mode: u+rwx
   become: false
 
-- name: Execute the nvm install script
+- name: Install nvm {{ nvm_version }} - Execute the nvm install script
   shell: 
     cmd: bash install.sh 
     chdir: /tmp 

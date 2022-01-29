@@ -1,4 +1,4 @@
-- name: Install AWS CDK
+- name: Install AWS CDK {{ cdk_version }}
   npm:
     name: aws-cdk
     global: yes
