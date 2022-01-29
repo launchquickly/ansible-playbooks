@@ -51,7 +51,7 @@ BECOME password:
 |           | Generate SSH host file                               |                    |
 | aws-setup | Installs AWS CLI                                     | v2                 |
 |           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
-|           | Installs AWS CDK                                     | 1.101.0            |
+|           | Installs AWS CDK                                     | 2.4.0              |
 
 
 ## TODO
