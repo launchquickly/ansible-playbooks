@@ -28,3 +28,15 @@
     path: /tmp/go{{ go_version }}.linux-amd64.tar.gz
     state: absent
   become: false
+
+- name: GOPATH is set on .profile
+  ansible.builtin.lineinfile:
+    path: /home/{{ ansible_user }}/.profile
+    line: export GOPATH=$HOME/go
+  become: false
+
+- name: GOPATH is on PATH in .profile
+  ansible.builtin.lineinfile:
+    path: /home/{{ ansible_user }}/.profile
+    line: export PATH=$PATH:$GOPATH/bin
+  become: false
