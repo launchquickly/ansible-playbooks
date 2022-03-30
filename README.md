@@ -40,18 +40,19 @@ BECOME password:
 
 ## Playbook manifest
 
-| Playbook | Description | Versions |
+| Playbook                  | Description                                          | Versions           |
 | --- | --- | --- |
-| checkout-git-repositories | Checkout git repositories | |
-| install-chrome | Installs chrome web browser | |
-| install-vagrant | Installs vagrant and virtualbox | |
-| install-vscode | Installs VS Code with remote-ssh extension | |
-| git-setup | Installs git and configures user.name and user.email |                    |
-|           | Generate SSH id_rsa key with passphrase              |                    |
-|           | Generate SSH host file                               |                    |
-| aws-setup | Installs AWS CLI                                     | v2                 |
-|           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
-|           | Installs AWS CDK                                     | 2.4.0              |
+| checkout-git-repositories | Checkout git repositories                            |                    |
+| install-chrome            | Installs chrome web browser                          |                    |
+| install-vagrant           | Installs vagrant and virtualbox                      |                    |
+| install-vscode            | Installs VS Code with remote-ssh extension           |                    |
+| git-setup                 | Installs git and configures user.name and user.email |                    |
+|                           | Generate SSH id_rsa key with passphrase              |                    |
+|                           | Generate SSH host file                               |                    |
+| aws-setup                 | Installs AWS CLI                                     | v2                 |
+|                           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
+|                           | Installs AWS CDK                                     | 2.4.0              |
+| golang-setup              | Installs Golang                                      | 1.18                 |
 
 
 ## TODO

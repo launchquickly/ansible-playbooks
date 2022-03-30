@@ -1,0 +1,7 @@
+---
+
+- name: Golang Setup
+  hosts: localhost
+
+  roles:
+    - { role: golang }
