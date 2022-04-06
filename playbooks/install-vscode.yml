@@ -1,17 +1,7 @@
 ---
-- name: Install VS Code
-  hosts: 127.0.0.1
-  connection: local
 
-  tasks:
-    - name: Install VS Code
-      snap:
-        name: code
-        classic: yes
-        state: present
-      become: true
+- name: VS Code Setup
+  hosts: localhost
 
-    - name: Install VS Code remote-ssh extension
-      shell:
-        cmd: code --install-extension ms-vscode-remote.remote-ssh
-      become: false
+  roles:
+    - { role: vscode }
