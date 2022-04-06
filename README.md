@@ -62,10 +62,11 @@ BECOME password:
 |                           | - [delve](https://github.com/go-delve/delve) - debugger                                 | latest             |
 |                           | - [go-outline](https://github.com/ramya-rao-a/go-outline)                               | latest             |
 |                           | - [staticcheck](https://staticcheck.io/)                                                | latest             |
+|                           | - [gotests](https://github.com/cweill/gotests)                                          | latest             |
 |                           | VS Code                                              |                    |
 |                           | Install extensions:                                  |                    |
 |                           | - remote-ssh                                         |                    |
-|                           | - golang.go                                          |                    |
+|                           | - [golang.go](https://github.com/golang/vscode-go)   |                    |
 
 
 ## TODO

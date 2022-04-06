@@ -38,3 +38,9 @@
     cmd: /usr/local/go/bin/go install honnef.co/go/tools/cmd/staticcheck@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/staticcheck
   become: false
+
+- name: install gotests utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install github.com/cweill/gotests/gotests@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/gotests
+  become: false
