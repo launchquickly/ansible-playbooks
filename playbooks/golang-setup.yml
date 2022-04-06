@@ -5,4 +5,5 @@
 
   roles:
     - { role: golang }
+    - { role: vscode }
     - { role: golang-utils }

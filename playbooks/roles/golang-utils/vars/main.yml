@@ -1,3 +1,2 @@
-goimports_version: latest
-golint_version: latest
+latest_version: latest
 golangci_lint_version: TODO

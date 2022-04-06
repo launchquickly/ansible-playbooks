@@ -58,6 +58,9 @@ BECOME password:
 |                           | - goimport                                           | latest             |
 |                           | - golint                                             | latest             |
 |                           | - golangci-lint (TODO)                               | TODO               |
+|                           | - gopls - language server for IDEs                   | latest             |
+|                           | - delve - debugger                                   | latest             |
+|                           | VS Code                                              |                    |
 
 
 ## TODO
