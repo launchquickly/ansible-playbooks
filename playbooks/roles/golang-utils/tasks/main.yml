@@ -1,0 +1,16 @@
+- name: install goimports utility - {{ goimports_version }}
+  command: 
+    cmd: /usr/local/go/bin/go install golang.org/x/tools/cmd/goimports@{{ goimports_version }}
+    creates: /home/{{ ansible_user }}/go/bin/goimports
+  become: false
+
+- name: install golint utility - {{ golint_version }}
+  command:
+    cmd: /usr/local/go/bin/go install golang.org/x/lint/golint@{{ golint_version }}
+    creates: /home/{{ ansible_user }}/go/bin/golint
+  become: false
+
+- name: install golangci-lint utility - {{ golangci_lint_version }}
+  ansible.builtin.debug:
+    msg: TODO - install golangci-lint utility when useful
+  become: false

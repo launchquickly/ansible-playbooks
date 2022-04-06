@@ -52,7 +52,12 @@ BECOME password:
 | aws-setup                 | Installs AWS CLI                                     | v2                 |
 |                           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
 |                           | Installs AWS CDK                                     | 2.4.0              |
-| golang-setup              | Installs Golang                                      | 1.18                 |
+| golang-setup              | Installs Golang                                      | 1.18               |
+|                           | Configure GOPATH and PATH for .profile               |                    |
+|                           | Install utilities:                                   |                    |
+|                           | - goimport                                           | latest             |
+|                           | - golint                                             | latest             |
+|                           | - golangci-lint (TODO)                               | TODO               |
 
 
 ## TODO
