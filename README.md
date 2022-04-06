@@ -61,6 +61,9 @@ BECOME password:
 |                           | - gopls - language server for IDEs                   | latest             |
 |                           | - delve - debugger                                   | latest             |
 |                           | VS Code                                              |                    |
+|                           | Install extensions:                                  |                    |
+|                           | - remote-ssh                                         |                    |
+|                           | - golang.go                                          |                    |
 
 
 ## TODO
