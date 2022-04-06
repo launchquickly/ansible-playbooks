@@ -26,3 +26,15 @@
     cmd: /usr/local/go/bin/go install github.com/go-delve/delve/cmd/dlv@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/dlv
   become: false
+
+- name: install go-outline utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install github.com/ramya-rao-a/go-outline@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/go-outline
+  become: false
+
+- name: install staticcheck utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install honnef.co/go/tools/cmd/staticcheck@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/staticcheck
+  become: false

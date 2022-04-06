@@ -55,11 +55,13 @@ BECOME password:
 | golang-setup              | Installs Golang                                      | 1.18               |
 |                           | Configure GOPATH and PATH for .profile               |                    |
 |                           | Install utilities:                                   |                    |
-|                           | - goimport                                           | latest             |
-|                           | - golint                                             | latest             |
-|                           | - golangci-lint (TODO)                               | TODO               |
-|                           | - gopls - language server for IDEs                   | latest             |
-|                           | - delve - debugger                                   | latest             |
+|                           | - [goimport](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                       | latest             |
+|                           | - [golint](https://github.com/golang/lint)                                              | latest             |
+|                           | - [golangci-lint](https://github.com/golangci/golangci-lint) (TODO)                     | TODO               |
+|                           | - [gopls](https://github.com/golang/tools/tree/master/gopls) - language server for IDEs | latest             |
+|                           | - [delve](https://github.com/go-delve/delve) - debugger                                 | latest             |
+|                           | - [go-outline](https://github.com/ramya-rao-a/go-outline)                               | latest             |
+|                           | - [staticcheck](https://staticcheck.io/)                                                | latest             |
 |                           | VS Code                                              |                    |
 |                           | Install extensions:                                  |                    |
 |                           | - remote-ssh                                         |                    |
