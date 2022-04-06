@@ -1,0 +1,4 @@
+- name: Install VS Code golang.go extension
+  shell:
+    cmd: code --install-extension golang.go
+  become: false

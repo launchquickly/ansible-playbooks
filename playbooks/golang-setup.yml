@@ -7,3 +7,4 @@
     - { role: golang }
     - { role: vscode }
     - { role: golang-utils }
+    - { role: golang-vscode }
