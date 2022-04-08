@@ -44,3 +44,9 @@
     cmd: /usr/local/go/bin/go install github.com/cweill/gotests/gotests@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/gotests
   become: false
+
+- name: install shadow linting utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/shadow
+  become: false

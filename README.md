@@ -63,6 +63,7 @@ BECOME password:
 |                           | - [go-outline](https://github.com/ramya-rao-a/go-outline)                               | latest             |
 |                           | - [staticcheck](https://staticcheck.io/)                                                | latest             |
 |                           | - [gotests](https://github.com/cweill/gotests)                                          | latest             |
+|                           | - [shadow](https://pkg.go.dev/golang.org/x/tools@v0.1.10/go/analysis/passes/shadow)     | latest             |
 |                           | VS Code                                              |                    |
 |                           | Install extensions:                                  |                    |
 |                           | - remote-ssh                                         |                    |
