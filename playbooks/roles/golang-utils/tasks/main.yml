@@ -25,7 +25,7 @@
 - name: install golangci-lint utility - {{ golangci_lint_version }}
   command:
     cmd: /tmp/install.sh -b /home/{{ ansible_user }}/go/bin {{ golangci_lint_version }}
-    creates: /home/{{ ansible_user }}/go/bin/gopls
+    creates: /home/{{ ansible_user }}/go/bin/golangci-lint
   become: false
 
 - name: Delete the golangci-lint utility install script
@@ -68,4 +68,10 @@
   command:
     cmd: /usr/local/go/bin/go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/shadow
+  become: false
+
+- name: install godoc utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install golang.org/x/tools/cmd/godoc@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/godoc
   become: false
