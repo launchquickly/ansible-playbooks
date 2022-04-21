@@ -57,7 +57,7 @@ BECOME password:
 |                           | Install utilities:                                   |                    |
 |                           | - [goimport](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                       | latest             |
 |                           | - [golint](https://github.com/golang/lint)                                              | latest             |
-|                           | - [golangci-lint](https://github.com/golangci/golangci-lint) (TODO)                     | TODO               |
+|                           | - [golangci-lint](https://github.com/golangci/golangci-lint)                            | v1.45.2            |
 |                           | - [gopls](https://github.com/golang/tools/tree/master/gopls) - language server for IDEs | latest             |
 |                           | - [delve](https://github.com/go-delve/delve) - debugger                                 | latest             |
 |                           | - [go-outline](https://github.com/ramya-rao-a/go-outline)                               | latest             |

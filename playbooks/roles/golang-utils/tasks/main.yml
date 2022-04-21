@@ -15,6 +15,25 @@
     msg: TODO - install golangci-lint utility when useful
   become: false
 
+- name: Download the golangci-lint install script
+  get_url: 
+    url: https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh 
+    dest: /tmp
+    mode: u+rwx
+  become: false
+
+- name: install golangci-lint utility - {{ golangci_lint_version }}
+  command:
+    cmd: /tmp/install.sh -b /home/{{ ansible_user }}/go/bin {{ golangci_lint_version }}
+    creates: /home/{{ ansible_user }}/go/bin/gopls
+  become: false
+
+- name: Delete the golangci-lint utility install script
+  file:
+    path: /tmp/install.sh
+    state: absent
+  become: false
+
 - name: install gopls language server for IDEs - {{ latest_version }}
   command:
     cmd: /usr/local/go/bin/go install golang.org/x/tools/gopls@{{ latest_version }}
