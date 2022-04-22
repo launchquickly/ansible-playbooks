@@ -75,3 +75,9 @@
     cmd: /usr/local/go/bin/go install golang.org/x/tools/cmd/godoc@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/godoc
   become: false
+
+- name: install godoctor utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install github.com/godoctor/godoctor@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/godoctor
+  become: false
