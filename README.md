@@ -66,6 +66,7 @@ BECOME password:
 |                           | - [shadow](https://pkg.go.dev/golang.org/x/tools@v0.1.10/go/analysis/passes/shadow)     | latest             |
 |                           | - [godoc](https://pkg.go.dev/golang.org/x/tools/cmd/godoc)                              | latest             |
 |                           | - [godoctor](https://github.com/godoctor/godoctor)                                      | latest             |
+|                           | - [errcheck](https://github.com/kisielk/errcheck)                                       | latest             |
 |                           | VS Code                                              |                    |
 |                           | Install extensions:                                  |                    |
 |                           | - remote-ssh                                         |                    |

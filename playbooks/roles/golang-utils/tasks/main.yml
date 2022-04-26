@@ -81,3 +81,9 @@
     cmd: /usr/local/go/bin/go install github.com/godoctor/godoctor@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/godoctor
   become: false
+
+- name: install errcheck linter utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install github.com/kisielk/errcheck@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/errcheck
+  become: false
