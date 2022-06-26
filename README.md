@@ -69,6 +69,7 @@ BECOME password:
 |                           | - [errcheck](https://github.com/kisielk/errcheck)                                       | latest             |
 |                           | VS Code                                              |                    |
 |                           | Install extensions:                                  |                    |
+|                           | - EditorConfig                                       |                    |
 |                           | - remote-ssh                                         |                    |
 |                           | - [golang.go](https://github.com/golang/vscode-go)   |                    |
 
