@@ -67,6 +67,10 @@ BECOME password:
 |                           | - [godoc](https://pkg.go.dev/golang.org/x/tools/cmd/godoc)                              | latest             |
 |                           | - [godoctor](https://github.com/godoctor/godoctor)                                      | latest             |
 |                           | - [errcheck](https://github.com/kisielk/errcheck)                                       | latest             |
+|                           | - [goa](https://github.com/goadesign/goa)                                               | v3                 |
+|                           | - [protoc-gen-go](https://github.com/golang/protobuf)                                   | latest             |
+|                           | - [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)                                 | latest             |
+|                           | Installs protoc binaries                             | 21.5               |
 |                           | VS Code                                              |                    |
 |                           | Install extensions:                                  |                    |
 |                           | - EditorConfig                                       |                    |
