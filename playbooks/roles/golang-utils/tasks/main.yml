@@ -87,3 +87,15 @@
     cmd: /usr/local/go/bin/go install github.com/kisielk/errcheck@{{ latest_version }}
     creates: /home/{{ ansible_user }}/go/bin/errcheck
   become: false
+
+- name: install protoc-gen-go utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install google.golang.org/protobuf/cmd/protoc-gen-go@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/protoc-gen-go
+  become: false
+
+- name: install protoc-gen-go-grpc utility - {{ latest_version }}
+  command:
+    cmd: /usr/local/go/bin/go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@{{ latest_version }}
+    creates: /home/{{ ansible_user }}/go/bin/protoc-gen-go-grpc
+  become: false

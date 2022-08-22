@@ -8,3 +8,4 @@
     - { role: vscode }
     - { role: golang-utils }
     - { role: golang-vscode }
+    - { role: protoc }
