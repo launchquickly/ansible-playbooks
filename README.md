@@ -4,12 +4,11 @@ Ansible playbook collection for configuring and managing Ubuntu desktop and serv
 
 ## Prerequisites
 
-These ansible playbooks are intended to be executed on Ubuntu. They have been tested on Ubuntu 20.04.
-
+These ansible playbooks are intended to be executed on Ubuntu. They have been tested on Ubuntu 22.04.
 
 ## Setup
 
-You must install ansible if it is not already installed:
+You must install homebrew, if it is not already installed:
 
 1. [Download](https://github.com/launchquickly/ansible-playbooks/archive/refs/heads/main.zip) zip of repository
 1. Unzip repository to directory you wish to use
@@ -18,7 +17,12 @@ You must install ansible if it is not already installed:
 ```bash
 sudo ./scripts/install-ansible.sh
 ```
-5. Enter your password when prompted
+5. Execute the following from the command prompt:
+```bash
+./scripts/install-homebrew.sh
+```
+6. Enter your password when prompted
+7. Follow any post install instructions provided by the output of the script
 
 
 ## Usage
