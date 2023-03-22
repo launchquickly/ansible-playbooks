@@ -46,6 +46,8 @@ BECOME password:
 
 | Playbook                  | Description                                          | Versions           |
 | --- | --- | --- |
+| base-setup                | Install base setup and configuration, including:     |                    |
+|                           | - zsh shell                     |                    |
 | checkout-git-repositories | Checkout git repositories                            |                    |
 | install-chrome            | Installs chrome web browser                          |                    |
 | install-vagrant           | Installs vagrant and virtualbox                      |                    |

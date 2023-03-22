@@ -1,0 +1,10 @@
+---
+
+- name: Base Setup
+  hosts: localhost
+
+  vars:
+    user_id: "{{ ansible_user_id }}"
+
+  roles:
+    - { role: zsh }
