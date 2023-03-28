@@ -2,4 +2,17 @@
   community.general.homebrew:
     name: zsh
     state: present
-  become: false
+
+- name: Capture zsh install location
+  ansible.builtin.shell: which zsh
+  register: which_zsh
+
+- name: Add zsh install to valid list of login shells
+  ansible.builtin.shell: add-shell {{ which_zsh.stdout }}
+  become: true
+
+- name: Set zsh as default shell for {{ ansible_user_id }} in /etc/passwd
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: "{{ which_zsh.stdout }}"
+  become: true
