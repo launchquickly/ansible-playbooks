@@ -60,8 +60,9 @@ BECOME password:
 | aws-setup                 | Installs AWS CLI                                     | v2                 |
 |                           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
 |                           | Installs AWS CDK                                     | 2.4.0              |
-| golang-setup              | Installs Golang                                      | 1.18               |
-|                           | Configure GOPATH and PATH for .profile               |                    |
+| golang-setup              | Installs Golang                                      | 1.20               |
+|                           | Configure GOPATH for .zprofile                       |                    |
+|                           | Install GoLand IDE                                   |                    |
 |                           | Install utilities:                                   |                    |
 |                           | - [goimport](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                       | latest             |
 |                           | - [golint](https://github.com/golang/lint)                                              | latest             |
@@ -79,11 +80,6 @@ BECOME password:
 |                           | - [protoc-gen-go](https://github.com/golang/protobuf)                                   | latest             |
 |                           | - [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)                                 | latest             |
 |                           | Installs protoc binaries                             | 21.5               |
-|                           | VS Code                                              |                    |
-|                           | Install extensions:                                  |                    |
-|                           | - EditorConfig                                       |                    |
-|                           | - remote-ssh                                         |                    |
-|                           | - [golang.go](https://github.com/golang/vscode-go)   |                    |
 
 
 ## TODO
