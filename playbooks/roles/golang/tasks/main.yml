@@ -1,42 +1,16 @@
-- name: Download Golang {{ go_version }}
-  ansible.builtin.get_url:
-    url: https://go.dev/dl/go{{ go_version }}.linux-amd64.tar.gz
-    dest: /tmp/go{{ go_version }}.linux-amd64.tar.gz
-    mode: u+rwx
-  become: false
+- name: Install go {{ go_version }}
+  community.general.homebrew:
+    name: go
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
-- name: Delete /usr/local/go
-  ansible.builtin.file:
-    path: /usr/local/go
-    state: absent
-  become: true
-
-- name: Install go{{ go_version }} to /usr/local/go
-  ansible.builtin.unarchive:
-    src: /tmp/go{{ go_version }}.linux-amd64.tar.gz
-    dest: /usr/local
-  become: true
-
-- name: Add /usr/local/go/bin to /etc/profile
+- name: GOPATH is set on .zprofile
   ansible.builtin.lineinfile:
-    path: /etc/profile
-    line: export PATH=$PATH:/usr/local/go/bin
-  become: true
-
-- name: Delete go{{ go_version }}.linux-amd64.tar.gz file
-  ansible.builtin.file:
-    path: /tmp/go{{ go_version }}.linux-amd64.tar.gz
-    state: absent
-  become: false
-
-- name: GOPATH is set on .profile
-  ansible.builtin.lineinfile:
-    path: /home/{{ ansible_user }}/.profile
+    path: "{{ ansible_env.HOME }}/.zprofile"
     line: export GOPATH=$HOME/go
   become: false
 
-- name: GOPATH is on PATH in .profile
+- name: GOPATH is on PATH in .zprofile
   ansible.builtin.lineinfile:
-    path: /home/{{ ansible_user }}/.profile
+    path: "{{ ansible_env.HOME }}/.zprofile"
     line: export PATH=$PATH:$GOPATH/bin
   become: false

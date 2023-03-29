@@ -2,3 +2,4 @@
   ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
