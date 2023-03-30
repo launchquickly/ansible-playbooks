@@ -1,6 +1,6 @@
 - name: Install go {{ go_version }}
   community.general.homebrew:
-    name: go
+    name: go@{{ go_version }}
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
 - name: GOPATH is set on .zprofile

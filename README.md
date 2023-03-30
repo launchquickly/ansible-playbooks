@@ -80,6 +80,9 @@ BECOME password:
 |                           | - [protoc-gen-go](https://github.com/golang/protobuf)                                   | latest             |
 |                           | - [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)                                 | latest             |
 |                           | Installs protoc binaries                             | 21.5               |
+| java-setup                | Install JDK                                          | Open JDK 17        |
+|                           | Configure java alternative                           |                    |
+|                           | Install IntelliJ IDE                                 |                    |
 
 
 ## TODO

@@ -1,0 +1,11 @@
+- name: Install IntelliJ IDEA Ultimate as snap package
+  community.general.snap:
+    name: intellij-idea-ultimate
+    classic: true
+  become: true
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install IntelliJ IDEA Ultimate as homebrew cask
+  community.general.homebrew_cask:
+    name: intellij-idea
+  when: ansible_distribution == 'MacOSX'
