@@ -1,0 +1,6 @@
+- name: Install utility Homebrew packages
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop:
+    - jq
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'

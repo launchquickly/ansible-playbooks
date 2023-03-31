@@ -86,6 +86,7 @@ BECOME password:
 | rust-setup                | Install rustup-init                                       |                    |
 |                           | Install rustup, which installs and manages Rust toolchain |                    |
 |                           | Install CLion IDE                                         |                    |
+|                           | Install JetBrains Rust Plugin                             |                    |
 
 
 ## TODO

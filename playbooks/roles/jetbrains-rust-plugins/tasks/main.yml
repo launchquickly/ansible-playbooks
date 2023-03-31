@@ -1,0 +1,59 @@
+- name: (Ubuntu) Find name of versioned CLion directory
+  ansible.builtin.find:
+    paths: "{{ ansible_env.HOME }}/.config/JetBrains"
+    recurse: no
+    file_type: directory
+    patterns: 'CLion*'
+  register: u_clion_find
+  when: ansible_distribution == 'Ubuntu'
+
+- name: (Ubuntu) Create a CLion plugin directory, if it does not exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
+    state: directory
+    mode: '0755'
+  with_items: "{{ u_clion_find.files }}"
+  when: ansible_distribution == 'Ubuntu'
+
+- name: (MacOSX) Find name of versioned CLion directory
+  ansible.builtin.find:
+    paths: "{{ ansible_env.HOME }}/Library/Application Support"
+    recurse: no
+    file_type: directory
+    patterns: 'CLion*'
+  register: m_clion_find
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Create a CLion plugin directory, if it does not exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/Library/Application Support/{{ item.path | basename }}/plugins"
+    state: directory
+    mode: '0755'
+  with_items: "{{ m_clion_find.files }}"
+  when: ansible_distribution == 'MacOSX'
+
+- name: Get latest version id for Rust plugin
+  ansible.builtin.shell: curl -s "https://plugins.jetbrains.com/api/plugins/8182/updates" | jq -r '.[0].id'
+  register: version_request
+
+- name: Download zip of Rust plugin
+  ansible.builtin.get_url:
+    url: "https://plugins.jetbrains.com/plugin/download?rel=true&updateId={{ version_request.stdout }}"
+    dest: "/tmp/{{ version_request.stdout }}.zip"
+    mode: '0440'
+
+- name: (Ubuntu) Unarchive Rust plugin into plugins directory
+  ansible.builtin.unarchive:
+    dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
+    src: "/tmp/{{ version_request.stdout }}.zip"
+    creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}/intellij-rust"
+  with_items: "{{ u_clion_find.files }}"
+  when: ansible_distribution == 'Ubuntu'
+
+- name: (MacOSX) Unarchive Rust plugin into plugins directory
+  ansible.builtin.unarchive:
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/{{ item.path | basename }}/plugins"
+    src: "/tmp/{{ version_request.stdout }}.zip"
+    creates: "{{ ansible_env.HOME }}/Library/Application Support/{{ item.path | basename }}/plugins/intellij-rust"
+  with_items: "{{ m_clion_find.files }}"
+  when: ansible_distribution == 'MacOSX'
