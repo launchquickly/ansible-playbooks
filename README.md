@@ -79,10 +79,13 @@ BECOME password:
 |                           | - [goa](https://github.com/goadesign/goa)                                               | v3                 |
 |                           | - [protoc-gen-go](https://github.com/golang/protobuf)                                   | latest             |
 |                           | - [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)                                 | latest             |
-|                           | Installs protoc binaries                             | 21.5               |
-| java-setup                | Install JDK                                          | Open JDK 17        |
-|                           | Configure java alternative                           |                    |
-|                           | Install IntelliJ IDE                                 |                    |
+|                           | Installs protoc binaries                                  | 21.5               |
+| java-setup                | Install JDK                                               | Open JDK 17        |
+|                           | Configure java alternative                                |                    |
+|                           | Install IntelliJ IDE                                      |                    |
+| rust-setup                | Install rustup-init                                       |                    |
+|                           | Install rustup, which installs and manages Rust toolchain |                    |
+|                           | Install CLion IDE                                         |                    |
 
 
 ## TODO

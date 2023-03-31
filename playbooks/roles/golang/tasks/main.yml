@@ -1,4 +1,4 @@
-- name: Install go {{ go_version }}
+- name: Install Golang {{ go_version }} Homebrew package
   community.general.homebrew:
     name: go@{{ go_version }}
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'

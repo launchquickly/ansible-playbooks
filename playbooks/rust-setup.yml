@@ -1,0 +1,8 @@
+---
+
+- name: Rust Setup
+  hosts: localhost
+
+  roles:
+    - { role: rust }
+    - { role: clion }

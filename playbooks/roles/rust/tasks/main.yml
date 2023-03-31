@@ -1,0 +1,10 @@
+- name: Install rustup-init Homebrew package
+  community.general.homebrew:
+    name: rustup-init
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
+- name: Install rustup
+  ansible.builtin.shell: rustup-init -y
+  args:
+    creates: "{{ ansible_env.HOME }}/.rustup"
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'

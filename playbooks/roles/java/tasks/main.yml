@@ -1,9 +1,9 @@
-- name: Install Java OpenJDK {{ java_version }}
+- name: Install Java OpenJDK {{ java_version }} Homebrew package
   community.general.homebrew:
     name: openjdk@{{ java_version }}
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
-- name: Correct java version selected
+- name: Set java version available by default
   community.general.alternatives:
     name: java
     path: "{{ ansible_env.HOMEBREW_PREFIX }}/opt/openjdk@{{ java_version }}/bin/java"

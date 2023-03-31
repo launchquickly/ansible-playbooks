@@ -1,11 +1,11 @@
-- name: Install IntelliJ IDEA Ultimate as snap package
+- name: Install CLion as snap package
   community.general.snap:
-    name: intellij-idea-ultimate
+    name: clion
     classic: true
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install IntelliJ IDEA Ultimate as Homebrew cask
+- name: Install Clion as Homebrew cask
   community.general.homebrew_cask:
-    name: intellij-idea
+    name: clion
   when: ansible_distribution == 'MacOSX'
