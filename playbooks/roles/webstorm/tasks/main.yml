@@ -1,11 +1,11 @@
-- name: (Ubuntu) Install CLion as snap package
+- name: (Ubuntu) Install WebStorm as snap package
   community.general.snap:
-    name: clion
+    name: webstorm
     classic: true
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: (MacOSX) Install Clion as Homebrew cask
+- name: (MacOSX) Install GoLand as  Homebrew cask
   community.general.homebrew_cask:
-    name: clion
+    name: webstorm
   when: ansible_distribution == 'MacOSX'

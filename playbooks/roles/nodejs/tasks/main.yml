@@ -3,20 +3,17 @@
     url: https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_version }}/install.sh 
     dest: /tmp
     mode: u+rwx
-  become: false
 
 - name: Install nvm {{ nvm_version }} - Execute the nvm install script
   shell: 
     cmd: bash install.sh 
     chdir: /tmp 
     executable: /bin/bash
-  become: false
 
 - name: Delete the nvm install script
   file:
     path: /tmp/install.sh
     state: absent
-  become: false
 
 - name: Install Node.js {{ nodejs_version }}
   shell:
@@ -25,7 +22,6 @@
     executable: /bin/bash
     chdir: "{{ ansible_env.HOME }}"
     creates: "{{ ansible_env.HOME }}/.nvm/versions/node/v{{ nodejs_version }}"
-  become: false
 
 - name: Set Node.js {{ nodejs_version }} as the default
   shell:
@@ -33,4 +29,3 @@
   args:
     executable: /bin/bash
     chdir: "{{ ansible_env.HOME }}"
-  become: false

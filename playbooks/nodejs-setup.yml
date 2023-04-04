@@ -1,0 +1,8 @@
+---
+
+- name: Node.js Setup
+  hosts: localhost
+
+  roles:
+    - { role: nodejs }
+    - { role: webstorm }

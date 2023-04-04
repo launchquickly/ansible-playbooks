@@ -1,11 +1,11 @@
-- name: Install GoLand as snap package
+- name: (Ubuntu) Install GoLand as snap package
   community.general.snap:
     name: goland
     classic: true
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install GoLand as  Homebrew cask
+- name: (MacOSX) Install GoLand as  Homebrew cask
   community.general.homebrew_cask:
     name: goland
   when: ansible_distribution == 'MacOSX'

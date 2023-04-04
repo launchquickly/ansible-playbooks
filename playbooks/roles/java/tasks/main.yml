@@ -3,7 +3,7 @@
     name: openjdk@{{ java_version }}
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
-- name: Set java version available by default
+- name: (Ubuntu) Set java version available by default
   community.general.alternatives:
     name: java
     path: "{{ ansible_env.HOMEBREW_PREFIX }}/opt/openjdk@{{ java_version }}/bin/java"

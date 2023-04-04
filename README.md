@@ -44,26 +44,26 @@ BECOME password:
 
 ## Playbook manifest
 
-| Playbook                  | Description                                          | Versions           |
-| --- | --- | --- |
-| base-setup                | Install base setup and configuration, including:     |                    |
-|                           | - zsh shell                                          |                    |
-|                           | - sets zsh shell as users default                    |                    |
-|                           | - Oh My Zsh                                          |                    |
-| checkout-git-repositories | Checkout git repositories                            |                    |
-| install-chrome            | Installs chrome web browser                          |                    |
-| install-vagrant           | Installs vagrant and virtualbox                      |                    |
-| install-vscode            | Installs VS Code with remote-ssh extension           |                    |
-| git-setup                 | Installs git and configures user.name and user.email |                    |
-|                           | Generate SSH id_rsa key with passphrase              |                    |
-|                           | Generate SSH host file                               |                    |
-| aws-setup                 | Installs AWS CLI                                     | v2                 |
-|                           | Installs nvm (node version manager) and Node.js      | v0.39.1 & v14.18.3 |
-|                           | Installs AWS CDK                                     | 2.4.0              |
-| golang-setup              | Installs Golang                                      | 1.20               |
-|                           | Configure GOPATH for .zprofile                       |                    |
-|                           | Install GoLand IDE                                   |                    |
-|                           | Install utilities:                                   |                    |
+| Playbook                  | Description                                                                             | Versions           |
+|---------------------------|-----------------------------------------------------------------------------------------|--------------------|
+| base-setup                | Install base setup and configuration, including:                                        |                    |
+|                           | - zsh shell                                                                             |                    |
+|                           | - sets zsh shell as users default                                                       |                    |
+|                           | - Oh My Zsh                                                                             |                    |
+| checkout-git-repositories | Checkout git repositories                                                               |                    |
+| install-chrome            | Installs chrome web browser                                                             |                    |
+| install-vagrant           | Installs vagrant and virtualbox                                                         |                    |
+| install-vscode            | Installs VS Code with remote-ssh extension                                              |                    |
+| git-setup                 | Installs git and configures user.name and user.email                                    |                    |
+|                           | Generate SSH id_rsa key with passphrase                                                 |                    |
+|                           | Generate SSH host file                                                                  |                    |
+| aws-setup                 | Installs AWS CLI                                                                        | v2                 |
+|                           | Installs nvm (node version manager) and Node.js                                         | v0.39.3 & v18.15.0 |
+|                           | Installs AWS CDK                                                                        | 2.4.0              |
+| golang-setup              | Installs Golang                                                                         | 1.20               |
+|                           | Configure GOPATH for .zprofile                                                          |                    |
+|                           | Install GoLand IDE                                                                      |                    |
+|                           | Install utilities:                                                                      |                    |
 |                           | - [goimport](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                       | latest             |
 |                           | - [golint](https://github.com/golang/lint)                                              | latest             |
 |                           | - [golangci-lint](https://github.com/golangci/golangci-lint)                            | v1.45.2            |
@@ -79,14 +79,16 @@ BECOME password:
 |                           | - [goa](https://github.com/goadesign/goa)                                               | v3                 |
 |                           | - [protoc-gen-go](https://github.com/golang/protobuf)                                   | latest             |
 |                           | - [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)                                 | latest             |
-|                           | Installs protoc binaries                                  | 21.5               |
-| java-setup                | Install JDK                                               | Open JDK 17        |
-|                           | Configure java alternative                                |                    |
-|                           | Install IntelliJ IDE                                      |                    |
-| rust-setup                | Install rustup-init                                       |                    |
-|                           | Install rustup, which installs and manages Rust toolchain |                    |
-|                           | Install CLion IDE                                         |                    |
-|                           | Install JetBrains Rust Plugin                             |                    |
+|                           | Installs protoc binaries                                                                | 21.5               |
+| java-setup                | Install JDK                                                                             | Open JDK 17        |
+|                           | Configure java alternative                                                              |                    |
+|                           | Install IntelliJ IDE                                                                    |                    |
+| nodejs-setup              | Installs nvm (node version manager) and Node.js                                         | v0.39.3 & v18.15.0 |
+|                           | Install WebStorm IDE                                                                    |                    |
+| rust-setup                | Install rustup-init                                                                     |                    |
+|                           | Install rustup, which installs and manages Rust toolchain                               |                    |
+|                           | Install CLion IDE                                                                       |                    |
+|                           | Install JetBrains Rust Plugin                                                           |                    |
 
 
 ## TODO
