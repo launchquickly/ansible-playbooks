@@ -5,7 +5,7 @@
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: (MacOSX) Install GoLand as  Homebrew cask
+- name: (MacOSX) Install GoLand as Homebrew cask
   community.general.homebrew_cask:
     name: goland
   when: ansible_distribution == 'MacOSX'

@@ -85,6 +85,7 @@ BECOME password:
 |                           | Install IntelliJ IDE                                                                    |                    |
 | nodejs-setup              | Installs nvm (node version manager) and Node.js                                         | v0.39.3 & v18.15.0 |
 |                           | Install WebStorm IDE                                                                    |                    |
+| python-setup              | Install PyCharm IDE                                                                     |                    |
 | rust-setup                | Install rustup-init                                                                     |                    |
 |                           | Install rustup, which installs and manages Rust toolchain                               |                    |
 |                           | Install CLion IDE                                                                       |                    |

@@ -1,11 +1,11 @@
-- name: (Ubuntu) Install WebStorm as snap package
+- name: (Ubuntu) Install PyCharm as snap package
   community.general.snap:
-    name: webstorm
+    name: pycharm-professional
     classic: true
   become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: (MacOSX) Install WebStorm as Homebrew cask
+- name: (MacOSX) Install PyCharm as Homebrew cask
   community.general.homebrew_cask:
-    name: webstorm
+    name: pycharm
   when: ansible_distribution == 'MacOSX'

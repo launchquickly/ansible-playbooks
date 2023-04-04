@@ -1,0 +1,7 @@
+---
+
+- name: Python Setup
+  hosts: localhost
+
+  roles:
+    - { role: pycharm }
