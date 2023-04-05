@@ -1,6 +1,42 @@
+- name: (MacOSX) Enable developer mode
+  ansible.builtin.shell: /usr/sbin/DevToolsSecurity --enable
+  become: true
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Install Homebrew 
+  include_role:
+    name: geerlingguy.mac.homebrew
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Make sure Homebrew is in path
+  ansible.builtin.lineinfile:
+    path: /etc/paths
+    state: present
+    line: "/opt/homebrew/bin"
+    insertbefore: /usr/local/bin
+  become: true
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Install core packages via brew casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  loop:
+    - iterm2
+  when: ansible_distribution == 'MacOSX'
+
 - name: Install utility Homebrew packages
   community.general.homebrew:
     name: "{{ item }}"
   loop:
+    - curl
+    - diffutils
     - jq
+    - unzip
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
+- name: Install core packages via brew casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  loop:
+    - docker
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'

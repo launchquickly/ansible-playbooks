@@ -1,0 +1,9 @@
+## global .gitignore file
+
+# MacOSX metadata
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.idea
+

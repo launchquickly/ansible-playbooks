@@ -8,15 +8,25 @@ These ansible playbooks are intended to be executed on Ubuntu. They have been te
 
 ## Setup
 
-You must install homebrew, if it is not already installed:
+You must install some prerequisites before running the playbooks:
 
 1. [Download](https://github.com/launchquickly/ansible-playbooks/archive/refs/heads/main.zip) zip of repository
 1. Unzip repository to directory you wish to use
 1. Open command prompt and change into the root directory of the repository
-1. Execute the following from the command prompt:
+
+
+For Ubuntu:
+4. Execute the following from the command prompt:
 ```bash
-sudo ./scripts/install-ansible.sh
+sudo ./scripts/bootstrap-ubuntu.sh
 ```
+
+For MacOSX:
+4. Execute the following from the command prompt:
+```zsh
+sudo ./scripts/bootstrap-macos.sh
+```
+
 5. Execute the following from the command prompt:
 ```bash
 ./scripts/install-homebrew.sh
