@@ -23,8 +23,8 @@
 - name: Ensure ~/.zprofile has been created
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.zprofile"
-    state: 'touch'
-    mode: '644'
+    state: touch
+    mode: 0644
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
 - name: (Ubuntu) Add Homebrew to PATH for zsh shell

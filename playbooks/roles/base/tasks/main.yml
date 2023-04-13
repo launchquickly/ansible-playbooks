@@ -40,3 +40,9 @@
   loop:
     - docker
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
+- name: Create ~/code directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/code"
+    state: directory
+    mode: 0755
