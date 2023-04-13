@@ -20,11 +20,17 @@
   become: true
   when: ansible_distribution == 'Ubuntu'
 
+- name: Ensure ~/.zprofile has been created
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.zprofile"
+    state: 'touch'
+    mode: '644'
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
 - name: (Ubuntu) Add Homebrew to PATH for zsh shell
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
     line: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    create: true
   when: ansible_distribution == 'Ubuntu'
 
 - name: (Ubuntu) Make homebrew available to zsh shell too
