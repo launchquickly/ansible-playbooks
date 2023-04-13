@@ -2,5 +2,11 @@ Host github.com
   User {{ user_name }}
   Hostname ssh.github.com
   PreferredAuthentications publickey
-  IdentityFile ~/.ssh/{{ ssh_key_filename }}
+  IdentityFile ~/.ssh/id_ed25519
   Port 443
+
+Host *
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519

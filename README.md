@@ -65,7 +65,8 @@ BECOME password:
 | install-vagrant           | Installs vagrant and virtualbox                                                         |                    |
 | install-vscode            | Installs VS Code with remote-ssh extension                                              |                    |
 | git-setup                 | Installs git and configures user.name and user.email                                    |                    |
-|                           | Generate SSH id_rsa key with passphrase                                                 |                    |
+|                           | Setup standard git config, including global gitignore file                              |                    |
+|                           | Generate SSH id_ed25519 key                                                             |                    |
 |                           | Generate SSH host file                                                                  |                    |
 | aws-setup                 | Installs AWS CLI                                                                        | v2                 |
 |                           | Installs nvm (node version manager) and Node.js                                         | v0.39.3 & v18.15.0 |

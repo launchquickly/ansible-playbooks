@@ -2,17 +2,7 @@
 - name: Base Setup
   hosts: localhost
 
-  vars_prompt:
-    - name: user_email
-      prompt: What is your git email?
-      private: false
-
-  vars:
-    user_name: "{{ ansible_user_id }}"
-
   roles:
     - { role: base }
     - { role: zsh }
     - { role: ohmyzsh }
-    - { role: git }
-

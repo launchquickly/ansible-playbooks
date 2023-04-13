@@ -24,41 +24,11 @@
     scope: global
   when: ansible_distribution == 'MacOSX'
 
-- name: generate SSH key file ~/.ssh/id_ed25519
-  ansible.builtin.user:
-    name: "{{ user_name }}"
-    generate_ssh_key: true
-    ssh_key_type: ed25519
-    ssh_key_file: .ssh/id_ed25519
-    force: false
-
-- name: generate SSH config file
-  ansible.builtin.template:
-    src: config
-    dest: "{{ ansible_env.HOME }}/.ssh/config"
-
-- name: (MacOSX) Add ssh-key to ssh-agent
-  ansible.builtin.shell: ssh-add --apple-use-keychain {{ ansible_env.HOME }}/.ssh/id_ed25519
-  when: ansible_distribution == 'MacOSX'
-
-- name: (MacOSX)Create ~/Library/LaunchAgents  directory, if it does not exist
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/Library/LaunchAgents"
-    state: directory
-    mode: '0755'
-  when: ansible_distribution == 'MacOSX'
-
-- name: (MacOSX) Create task to make SSH keys available on startup
-  ansible.builtin.template:
-    src: AddSSHKeysAtLogin.plist
-    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/AddSSHKeysAtLogin.plist"  
-  when: ansible_distribution == 'MacOSX'
-
 - name: Create ~/.config/git directory, if it does not exist
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/git"
     state: directory
-    mode: '0755'
+    mode: 0755
 
 - name: configure global gitignore file
   ansible.builtin.template:
