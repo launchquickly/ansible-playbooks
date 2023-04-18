@@ -1,0 +1,32 @@
+- name: validate parameters
+  ansible.builtin.assert:
+    that:
+      - ide_name is defined
+      - ide_name is string
+      - ide_name is match ('^(clion|datagrip|goland|intellij-idea|pycharm|webstorm)$')
+
+- name: (MacOSX) Install {{ ide_name }} as Homebrew cask
+  community.general.homebrew_cask:
+    name: "{{ ide_name }}"
+  when: ansible_distribution == 'MacOSX'
+
+- name: (Ubuntu) Install {{ ide_name }} as snap package
+  community.general.snap:
+    name: "{{ ide_name }}"
+    classic: true
+  become: true
+  when: ansible_distribution == 'Ubuntu' and ide_name != 'pycharm' and ide_name != 'intellij-idea'
+
+- name: (Ubuntu) Install intellij-idea-ultimate as snap package
+  community.general.snap:
+    name: intellij-idea-ultimate
+    classic: true
+  become: true
+  when: ansible_distribution == 'Ubuntu' and ide_name == 'intellij-idea'
+
+- name: (Ubuntu) Install pycharm-professional as snap package
+  community.general.snap:
+    name: pycharm-professional
+    classic: true
+  become: true
+  when: ansible_distribution == 'Ubuntu' and ide_name == 'pycharm'

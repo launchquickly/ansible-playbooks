@@ -1,11 +1,5 @@
-- name: (Ubuntu) Install GoLand as snap package
-  community.general.snap:
-    name: goland
-    classic: true
-  become: true
-  when: ansible_distribution == 'Ubuntu'
-
-- name: (MacOSX) Install GoLand as Homebrew cask
-  community.general.homebrew_cask:
-    name: goland
-  when: ansible_distribution == 'MacOSX'
+- name: Install GoLand
+  ansible.builtin.include_role:
+    name: jetbrains-ide
+  vars:
+    ide_name: goland

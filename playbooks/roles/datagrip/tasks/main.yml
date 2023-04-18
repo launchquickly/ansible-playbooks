@@ -1,5 +1,5 @@
-- name: Install WebStorm
+- name: Install DataGrip
   ansible.builtin.include_role:
     name: jetbrains-ide
   vars:
-    ide_name: webstorm
+    ide_name: datagrip

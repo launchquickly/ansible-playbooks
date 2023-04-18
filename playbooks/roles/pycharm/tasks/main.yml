@@ -1,11 +1,5 @@
-- name: (Ubuntu) Install PyCharm as snap package
-  community.general.snap:
-    name: pycharm-professional
-    classic: true
-  become: true
-  when: ansible_distribution == 'Ubuntu'
-
-- name: (MacOSX) Install PyCharm as Homebrew cask
-  community.general.homebrew_cask:
-    name: pycharm
-  when: ansible_distribution == 'MacOSX'
+- name: Install PyCharm
+  ansible.builtin.include_role:
+    name: jetbrains-ide
+  vars:
+    ide_name: pycharm
