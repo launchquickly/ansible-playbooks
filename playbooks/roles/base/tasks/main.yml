@@ -34,12 +34,12 @@
     - unzip
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
-- name: Install core packages via brew casks
+- name: (MacOSX) Install core packages via brew casks
   community.general.homebrew_cask:
     name: "{{ item }}"
   loop:
     - docker
-  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'MacOSX'
 
 - name: Create ~/code directory
   ansible.builtin.file:
