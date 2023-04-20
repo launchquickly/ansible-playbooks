@@ -1,0 +1,8 @@
+---
+
+- name: Java Setup
+  hosts: localhost
+
+  roles:
+    - { role: kotlin }
+    - { role: intellij }

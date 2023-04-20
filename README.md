@@ -94,6 +94,8 @@ BECOME password:
 | java-setup                | Install JDK                                                                             | Open JDK 17        |
 |                           | Configure java alternative                                                              |                    |
 |                           | Install IntelliJ IDE                                                                    |                    |
+| kotlin-setup              | Install Kotlin                                                                          | latest             |
+|                           | Install IntelliJ IDE                                                                    |                    |
 | nodejs-setup              | Installs nvm (node version manager) and Node.js                                         | v0.39.3 & v18.15.0 |
 |                           | Install WebStorm IDE                                                                    |                    |
 | python-setup              | Install PyCharm IDE                                                                     |                    |
