@@ -17,7 +17,7 @@
 
 - name: (MacOSX) Find name of versioned CLion directory
   ansible.builtin.find:
-    paths: "{{ ansible_env.HOME }}/Library/Application Support"
+    paths: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains"
     recurse: no
     file_type: directory
     patterns: 'CLion*'
@@ -26,7 +26,7 @@
 
 - name: (MacOSX) Create a CLion plugin directory, if it does not exist
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/Library/Application Support/{{ item.path | basename }}/plugins"
+    path: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins"
     state: directory
     mode: '0755'
   with_items: "{{ m_clion_find.files }}"
@@ -52,8 +52,8 @@
 
 - name: (MacOSX) Unarchive Rust plugin into plugins directory
   ansible.builtin.unarchive:
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/{{ item.path | basename }}/plugins"
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins"
     src: "/tmp/{{ version_request.stdout }}.zip"
-    creates: "{{ ansible_env.HOME }}/Library/Application Support/{{ item.path | basename }}/plugins/intellij-rust"
+    creates: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins/intellij-rust"
   with_items: "{{ m_clion_find.files }}"
   when: ansible_distribution == 'MacOSX'
