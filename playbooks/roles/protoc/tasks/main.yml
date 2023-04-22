@@ -1,19 +1,4 @@
-- name: Create /usr/local/protoc if it does not exist
-  ansible.builtin.file:
-    path: /usr/local/protoc
-    state: directory
-    mode: '0755'
-  become: true
-
-- name: Unarchive protoc v{{ protoc_version }} to /usr/local/protoc
-  ansible.builtin.unarchive:
-    src: https://github.com/protocolbuffers/protobuf/releases/download/v{{ protoc_version }}/protoc-{{ protoc_version }}-linux-x86_64.zip
-    dest: /usr/local/protoc
-    remote_src: yes
-  become: true
-
-- name: Add /usr/local/protoc/bin to /etc/profile
-  ansible.builtin.lineinfile:
-    path: /etc/profile
-    line: export PATH=$PATH:/usr/local/protoc/bin
-  become: true
+- name: Install protobuf (dependency) and protoc-gen-go-grpc Homebrew package
+  community.general.homebrew:
+    name: protoc-gen-go-grpc
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
