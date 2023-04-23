@@ -1,0 +1,7 @@
+---
+
+- name: PostgreSQL Setup
+  hosts: localhost
+
+  roles:
+    - { role: datagrip }
