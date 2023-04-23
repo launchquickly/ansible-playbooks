@@ -3,6 +3,14 @@
     name: openjdk@{{ java_version }}
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
+- name: (MacOSX) Create a symbolic link to OpenJDK install
+  ansible.builtin.file:
+    dest: "/Library/Java/JavaVirtualMachines/openjdk-{{ java_version }}.jdk"
+    src: "{{ ansible_env.HOMEBREW_PREFIX }}/opt/openjdk@{{ java_version }}/libexec/openjdk.jdk"
+    state: link
+  become: true
+  when: ansible_distribution == 'MacOSX'
+
 - name: (Ubuntu) Set java version available by default
   community.general.alternatives:
     name: java
