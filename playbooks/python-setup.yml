@@ -4,4 +4,5 @@
   hosts: localhost
 
   roles:
+    - { role: python }
     - { role: pycharm }

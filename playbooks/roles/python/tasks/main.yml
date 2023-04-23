@@ -1,0 +1,4 @@
+- name: Install Python {{ python_version }} Homebrew package
+  community.general.homebrew:
+    name: python@{{ python_version }}
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
