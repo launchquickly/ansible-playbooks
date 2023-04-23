@@ -27,6 +27,16 @@
     mode: 0644
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
+- name: (MacOSX) Add Homebrew to PATH for zsh shell
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.zprofile"
+    line: eval "$(/opt/homebrew/bin/brew shellenv)"
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Make homebrew available to zsh shell too
+  ansible.builtin.shell: eval "$(/opt/homebrew/bin/brew shellenv)"
+  when: ansible_distribution == 'MacOSX'
+
 - name: (Ubuntu) Add Homebrew to PATH for zsh shell
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
