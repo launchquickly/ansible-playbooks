@@ -1,0 +1,4 @@
+- name: Install Gradle {{ gradle_version }} Homebrew package
+  community.general.homebrew:
+    name: gradle@{{ gradle_version }}
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'

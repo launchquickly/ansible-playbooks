@@ -5,4 +5,5 @@
 
   roles:
     - { role: java }
+    - { role: gradle }
     - { role: intellij }

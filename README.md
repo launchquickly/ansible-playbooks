@@ -93,8 +93,10 @@ BECOME password:
 |                           | - [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)                                 | latest             |
 | java-setup                | Install JDK                                                                             | Open JDK 17        |
 |                           | Configure java alternative                                                              |                    |
+|                           | Gradle                                                                                  | 8.x.x              |
 |                           | Install IntelliJ IDE                                                                    |                    |
 | kotlin-setup              | Install Kotlin                                                                          | latest             |
+|                           | Gradle                                                                                  | 8.x.x              |
 |                           | Install IntelliJ IDE                                                                    |                    |
 | nodejs-setup              | Installs nvm (node version manager) and Node.js                                         | v0.39.3 & v18.15.0 |
 |                           | Install WebStorm IDE                                                                    |                    |
