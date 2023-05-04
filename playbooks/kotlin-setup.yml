@@ -1,6 +1,6 @@
 ---
 
-- name: Java Setup
+- name: Kotlin Setup
   hosts: localhost
 
   roles:
