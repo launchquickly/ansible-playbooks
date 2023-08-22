@@ -54,45 +54,46 @@ BECOME password:
 
 ## Playbook manifest
 
-| Playbook                  | Description                                                  | Versions          |
-|---------------------------|--------------------------------------------------------------|-------------------|
-| base-setup                | Install base setup and configuration, including:             |                   |
-|                           | - zsh shell                                                  |                   |
-|                           | - sets zsh shell as users default                            |                   |
-|                           | - Oh My Zsh                                                  |                   |
-| checkout-git-repositories | Checkout git repositories                                    |                   |
-| install-chrome            | Installs chrome web browser                                  |                   |
-| install-vagrant           | Installs vagrant and virtualbox                              |                   |
-| install-vscode            | Installs VS Code with remote-ssh extension                   |                   |
-| git-setup                 | Installs git and configures user.name and user.email         |                   |
-|                           | Setup standard git config, including global gitignore file   |                   |
-|                           | Generate SSH id_ed25519 key                                  |                   |
-|                           | Generate SSH host file                                       |                   |
-| aws-setup                 | Installs AWS CLI                                             | v2                |
+| Playbook                  | Description                                                  | Versions           |
+|---------------------------|--------------------------------------------------------------|--------------------|
+| base-setup                | Install base setup and configuration, including:             |                    |
+|                           | - zsh shell                                                  |                    |
+|                           | - sets zsh shell as users default                            |                    |
+|                           | - Oh My Zsh                                                  |                    |
+| checkout-git-repositories | Checkout git repositories                                    |                    |
+| install-chrome            | Installs chrome web browser                                  |                    |
+| install-vagrant           | Installs vagrant and virtualbox                              |                    |
+| install-vscode            | Installs VS Code with remote-ssh extension                   |                    |
+| git-setup                 | Installs git and configures user.name and user.email         |                    |
+|                           | Setup standard git config, including global gitignore file   |                    |
+|                           | Generate SSH id_ed25519 key                                  |                    |
+|                           | Generate SSH host file                                       |                    |
+| aws-setup                 | Installs AWS CLI                                             | v2                 |
 |                           | Installs nvm (node version manager) and Node.js              | v0.39.3 & v18.15.0 |
-|                           | Installs AWS CDK                                             | 2.4.0             |
-| golang-setup              | Installs Golang                                              | 1.20              |
-|                           | Configure GOPATH for .zprofile                               |                   |
-|                           | Install GoLand IDE                                           |                   |
-|                           | Install utilities:                                           |                   |
-|                           | - [golangci-lint](https://github.com/golangci/golangci-lint) | latest            |
-|                           | - [sqlc](https://sqlc.dev/)                                  | latest            |
-| java-setup                | Install JDK                                                  | Open JDK 17       |
-|                           | Configure java alternative                                   |                   |
-|                           | Gradle                                                       | 8.x.x             |
-|                           | Install IntelliJ IDE                                         |                   |
-| kotlin-setup              | Install Kotlin                                               | latest            |
-|                           | Gradle                                                       | 8.x.x             |
-|                           | Install IntelliJ IDE                                         |                   |
+|                           | Installs AWS CDK                                             | 2.4.0              |
+| golang-setup              | Installs Golang                                              | 1.20               |
+|                           | Configure GOPATH for .zprofile                               |                    |
+|                           | Install GoLand IDE                                           |                    |
+|                           | Install utilities:                                           |                    |
+|                           | - [golangci-lint](https://github.com/golangci/golangci-lint) | latest             |
+|                           | - [sqlc](https://sqlc.dev/)                                  | latest             |
+| java-setup                | Install JDK                                                  | Open JDK 17        |
+|                           | Configure java alternative                                   |                    |
+|                           | Gradle                                                       | 8.x.x              |
+|                           | Install IntelliJ IDE                                         |                    |
+| kotlin-setup              | Install Kotlin                                               | latest             |
+|                           | Gradle                                                       | 8.x.x              |
+|                           | Install IntelliJ IDE                                         |                    |
 | nodejs-setup              | Installs nvm (node version manager) and Node.js              | v0.39.3 & v18.15.0 |
-|                           | Install WebStorm IDE                                         |                   |
-| postgres-setup            | Install DataGrip IDE                                         |                   |
-| python-setup              | Install Python                                               | 3.11              |
-|                           | Install PyCharm IDE                                          |                   |
-| rust-setup                | Install rustup-init                                          |                   |
-|                           | Install rustup, which installs and manages Rust toolchain    |                   |
-|                           | Install CLion IDE                                            |                   |
-|                           | Install JetBrains Rust Plugin                                |                   |
+|                           | Install WebStorm IDE                                         |                    |
+| postgres-setup            | Install DataGrip IDE                                         |                    |
+| python-setup              | Install Python                                               | 3.11               |
+|                           | Install PyCharm IDE                                          |                    |
+| rust-setup                | Install rustup-init                                          |                    |
+|                           | Install rustup, which installs and manages Rust toolchain    |                    |
+|                           | Install CLion IDE                                            |                    |
+|                           | Install JetBrains Rust Plugin                                |                    |
+| vault-setup               | Install HashiCorp Vault   (MacOS only currently)             | latest             |
 
 ## TODO
 

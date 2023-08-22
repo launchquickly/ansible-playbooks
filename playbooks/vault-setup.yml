@@ -1,0 +1,7 @@
+---
+
+- name: HashiCorp Vault Setup
+  hosts: localhost
+
+  roles:
+    - { role: vault }

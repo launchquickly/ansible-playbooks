@@ -1,0 +1,9 @@
+- name: Install hashicorp/tap tap
+  community.general.homebrew_tap:
+    name: hashicorp/tap
+  when: ansible_distribution == 'MacOSX'
+
+- name: Install hashicorp/tap/vault Homebrew package
+  community.general.homebrew:
+    name: hashicorp/tap/vault
+  when: ansible_distribution == 'MacOSX'
