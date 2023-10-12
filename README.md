@@ -88,6 +88,7 @@ BECOME password:
 |                           | Install WebStorm IDE                                         |                    |
 | postgres-setup            | Install DataGrip IDE                                         |                    |
 | python-setup              | Install Python                                               | 3.11               |
+|                           | Install pip, setuptools, wheel, pipenv                       |                    |
 |                           | Install PyCharm IDE                                          |                    |
 | rust-setup                | Install rustup-init                                          |                    |
 |                           | Install rustup, which installs and manages Rust toolchain    |                    |

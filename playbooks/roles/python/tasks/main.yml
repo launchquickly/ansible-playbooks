@@ -1,4 +1,7 @@
-- name: Install Python {{ python_version }} Homebrew package
+- name: Install Python {{ python_version }} and pipenv Homebrew packages
   community.general.homebrew:
-    name: python@{{ python_version }}
+    name: "{{ item }}"
+  loop:
+    - python@{{ python_version }}
+    - pipenv
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
