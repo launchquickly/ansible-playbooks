@@ -1,0 +1,8 @@
+---
+
+- name: AI Development Setup
+  hosts: localhost
+
+  roles:
+    - { role: intellij }
+    - { role: intellij-plugins }

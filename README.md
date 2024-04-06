@@ -68,6 +68,8 @@ BECOME password:
 |                           | Setup standard git config, including global gitignore file   |                    |
 |                           | Generate SSH id_ed25519 key                                  |                    |
 |                           | Generate SSH host file                                       |                    |
+| ai-development-setup      | Install IntelliJ IDE                                         | 2023.1             |
+|                           | Installs Continue DEV plugin                                 | latest             |
 | aws-setup                 | Installs AWS CLI                                             | v2                 |
 |                           | Installs nvm (node version manager) and Node.js              | v0.39.3 & v18.15.0 |
 |                           | Installs AWS CDK                                             | 2.4.0              |

@@ -1,0 +1,48 @@
+- name: validate parameters
+  ansible.builtin.assert:
+    that:
+      - ide_name is defined
+      - ide_name is string
+      - ide_name is match ('^(CLion|Datagrip|GoLand|IntelliJIdea|Pycharm|Webstorm)$')
+      - ide_version is defined
+      - ide_version is number
+      - plugin_id is defined
+      - plugin_id is integer
+      - plugin_dir is defined
+      - plugin_dir is string
+
+
+- name: (Ubuntu) Find { ide_name }}{{ version }} IDE config directory
+  ansible.builtin.find:
+    paths: "{{ ansible_env.HOME }}/.config/JetBrains"
+    recurse: no
+    file_type: directory
+    patterns: "{{ ide_name }}{{ ide_version }}"
+  register: u_ide_find
+  when: ansible_distribution == 'Ubuntu'
+
+- name: (Ubuntu) Create a plugin directory { ide_name }}{{ ide_version }}, if it does not exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
+    state: directory
+    mode: '0755'
+  with_items: "{{ u_ide_find.files }}"
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Get latest version id for plugin ID {{ plugin_id }}
+  ansible.builtin.shell: curl -s "https://plugins.jetbrains.com/api/plugins/{{ plugin_id }}/updates" | jq -r '.[0].id'
+  register: version_request
+
+- name: Download zip of plugin
+  ansible.builtin.get_url:
+    url: "https://plugins.jetbrains.com/plugin/download?rel=true&updateId={{ version_request.stdout }}"
+    dest: "/tmp/{{ version_request.stdout }}.zip"
+    mode: '0440'
+
+- name: (Ubuntu) Unarchive plugin into {{ plugin_dir }} directory
+  ansible.builtin.unarchive:
+    dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
+    src: "/tmp/{{ version_request.stdout }}.zip"
+    creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}/{{ plugin_dir }}"
+  with_items: "{{ u_ide_find.files }}"
+  when: ansible_distribution == 'Ubuntu'

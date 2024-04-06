@@ -1,0 +1,8 @@
+- name: Install Continue Dev plugin for IntelliJ IDEA
+  ansible.builtin.include_role:
+    name: jetbrains-plugin
+  vars:
+    ide_name: IntelliJIdea
+    ide_version: 2023.1
+    plugin_id: 22707
+    plugin_dir: continue-intellij-extension
