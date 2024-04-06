@@ -3,3 +3,4 @@
     name: jetbrains-ide
   vars:
     ide_name: pycharm
+    ide_version: 2022.3/stable

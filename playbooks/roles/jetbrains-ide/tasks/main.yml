@@ -4,6 +4,7 @@
       - ide_name is defined
       - ide_name is string
       - ide_name is match ('^(clion|datagrip|goland|intellij-idea|pycharm|webstorm)$')
+      - ide_version is defined
 
 - name: (MacOSX) Install {{ ide_name }} as Homebrew cask
   community.general.homebrew_cask:
@@ -14,6 +15,7 @@
   community.general.snap:
     name: "{{ ide_name }}"
     classic: true
+    channel: "{{ ide_version }}"
   become: true
   when: ansible_distribution == 'Ubuntu' and ide_name != 'pycharm' and ide_name != 'intellij-idea'
 
@@ -21,6 +23,7 @@
   community.general.snap:
     name: intellij-idea-ultimate
     classic: true
+    channel: "{{ ide_version }}"
   become: true
   when: ansible_distribution == 'Ubuntu' and ide_name == 'intellij-idea'
 
@@ -28,5 +31,6 @@
   community.general.snap:
     name: pycharm-professional
     classic: true
+    channel: "{{ ide_version }}"
   become: true
   when: ansible_distribution == 'Ubuntu' and ide_name == 'pycharm'
