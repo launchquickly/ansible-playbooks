@@ -1,0 +1,10 @@
+- name: Install Ollama Homebrew package
+  community.general.homebrew:
+    name: ollama
+  become: false
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
+- name: Pull Deepseek-Coder-6.7b-Instruct model
+  ansible.builtin.command: ollama pull deepseek-coder:6.7b-instruct
+  become: yes
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
