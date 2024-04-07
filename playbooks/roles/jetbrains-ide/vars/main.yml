@@ -1,0 +1,15 @@
+ide_sub_urls:
+  clion: cpp/CLion
+  datagrip: datagrip/datagrip
+  goland: go/goland
+  intellij-idea: idea/ideaIU
+  pycharm: python/pycharm-professional
+  webstorm: webstorm/WebStorm
+
+ide_names:
+  clion: CLion
+  datagrip: Datagrip
+  goland: GoLand
+  intellij-idea: IntelliJ IDEA
+  pycharm: Pycharm
+  webstorm: WebStorm

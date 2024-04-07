@@ -11,8 +11,24 @@
       - plugin_dir is defined
       - plugin_dir is string
 
+- name: (MacOSX) Find {{ ide_name }}{{ version }} IDE config directory
+  ansible.builtin.find:
+    paths: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains"
+    recurse: no
+    file_type: directory
+    patterns: "{{ ide_name }}{{ ide_version }}"
+  register: m_ide_find
+  when: ansible_distribution == 'MacOSX'
 
-- name: (Ubuntu) Find { ide_name }}{{ version }} IDE config directory
+- name: (MacOSX) Create a plugin directory {{ ide_name }}{{ ide_version }}, if it does not exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins"
+    state: directory
+    mode: '0755'
+  with_items: "{{ m_ide_find.files }}"
+  when: ansible_distribution == 'MacOSX'
+
+- name: (Ubuntu) Find {{ ide_name }}{{ version }} IDE config directory
   ansible.builtin.find:
     paths: "{{ ansible_env.HOME }}/.config/JetBrains"
     recurse: no
@@ -21,7 +37,7 @@
   register: u_ide_find
   when: ansible_distribution == 'Ubuntu'
 
-- name: (Ubuntu) Create a plugin directory { ide_name }}{{ ide_version }}, if it does not exist
+- name: (Ubuntu) Create a plugin directory {{ ide_name }}{{ ide_version }}, if it does not exist
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
     state: directory
@@ -39,6 +55,14 @@
     dest: "/tmp/{{ version_request.stdout }}.zip"
     mode: '0440'
 
+- name: (MacOSX) Unarchive plugin into {{ plugin_dir }} directory
+  ansible.builtin.unarchive:
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins"
+    src: "/tmp/{{ version_request.stdout }}.zip"
+    creates: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins/{{ plugin_dir }}"
+  with_items: "{{ m_ide_find.files }}"
+  when: ansible_distribution == 'MacOSX'
+
 - name: (Ubuntu) Unarchive plugin into {{ plugin_dir }} directory
   ansible.builtin.unarchive:
     dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
@@ -46,3 +70,4 @@
     creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}/{{ plugin_dir }}"
   with_items: "{{ u_ide_find.files }}"
   when: ansible_distribution == 'Ubuntu'
+

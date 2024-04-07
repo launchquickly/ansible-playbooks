@@ -4,18 +4,48 @@
       - ide_name is defined
       - ide_name is string
       - ide_name is match ('^(clion|datagrip|goland|intellij-idea|pycharm|webstorm)$')
-      - ide_version is defined
 
-- name: (MacOSX) Install {{ ide_name }} as Homebrew cask
-  community.general.homebrew_cask:
-    name: "{{ ide_name }}"
+- name: (MacOSX) validate parameters
+  ansible.builtin.assert:
+    that:
+      - dmg_version is defined
+      - dmg_version is string
+  when: ansible_distribution == 'MacOSX'
+
+- name: (Ubuntu) validate parameters
+  ansible.builtin.assert:
+    that:
+      - snap_version is defined
+      - snap_version is string
+  when: ansible_distribution == 'Ubuntu'
+
+- name: (MacOSX) Download dmg for {{ ide_name }}
+  ansible.builtin.get_url:
+    url: "https://download.jetbrains.com/{{ ide_sub_urls[ide_name] }}-{{ dmg_version  }}-aarch64.dmg"
+    dest: /tmp/{{ ide_name }}_installer.dmg
+  become: false
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Mount the disk image
+  ansible.builtin.command: hdiutil attach "/tmp/{{ ide_name }}_installer.dmg"
+  become: yes
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Install {{ ide_name }}
+  ansible.builtin.command: cp -R "/Volumes/{{ ide_names[ide_name] }}/{{ ide_names[ide_name] }}.app" /Applications/
+  become: yes
+  when: ansible_distribution == 'MacOSX'
+
+- name: (MacOSX) Unmount the disk image
+  ansible.builtin.command: hdiutil detach "/Volumes/{{ ide_names[ide_name] }}"
+  become: yes
   when: ansible_distribution == 'MacOSX'
 
 - name: (Ubuntu) Install {{ ide_name }} as snap package
   community.general.snap:
     name: "{{ ide_name }}"
     classic: true
-    channel: "{{ ide_version }}"
+    channel: "{{ snap_version }}"
   become: true
   when: ansible_distribution == 'Ubuntu' and ide_name != 'pycharm' and ide_name != 'intellij-idea'
 
@@ -23,7 +53,7 @@
   community.general.snap:
     name: intellij-idea-ultimate
     classic: true
-    channel: "{{ ide_version }}"
+    channel: "{{ snap_version }}"
   become: true
   when: ansible_distribution == 'Ubuntu' and ide_name == 'intellij-idea'
 
@@ -31,6 +61,7 @@
   community.general.snap:
     name: pycharm-professional
     classic: true
-    channel: "{{ ide_version }}"
+    channel: "{{ snap_version }}"
   become: true
   when: ansible_distribution == 'Ubuntu' and ide_name == 'pycharm'
+
