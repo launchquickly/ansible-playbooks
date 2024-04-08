@@ -1,0 +1,10 @@
+- name: Create ~/.continue directory, if it does not exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.continue"
+    state: directory
+    mode: 0755
+
+- name: configure config.json file
+  ansible.builtin.template:
+    src: config.json
+    dest: "{{ ansible_env.HOME }}/.continue/config.json"

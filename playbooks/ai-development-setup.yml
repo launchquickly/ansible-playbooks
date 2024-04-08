@@ -7,3 +7,4 @@
     - { role: intellij }
     - { role: intellij-plugins }
     - { role: ollama }
+    - { role: continuedev }
