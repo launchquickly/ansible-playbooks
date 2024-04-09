@@ -1,4 +1,4 @@
-- name: Install Continue Dev plugin for IntelliJ IDEA
+- name: Install Continue Dev plugin
   ansible.builtin.include_role:
     name: jetbrains-plugin
   vars:
@@ -6,3 +6,33 @@
     ide_version: 2023.1
     plugin_id: 22707
     plugin_dir: continue-intellij-extension
+
+- name: Install Golang plugin
+  ansible.builtin.include_role:
+    name: jetbrains-plugin
+  vars:
+    ide_name: IntelliJIdea
+    ide_version: 2023.1
+    plugin_id: 9568
+    update_id: 368378
+    plugin_dir: go-plugin
+
+- name: Install Python plugin
+  ansible.builtin.include_role:
+    name: jetbrains-plugin
+  vars:
+    ide_name: IntelliJIdea
+    ide_version: 2023.1
+    plugin_id: 631
+    update_id: 488245
+    plugin_dir: python
+
+- name: Install Rust (deprecated) plugin
+  ansible.builtin.include_role:
+    name: jetbrains-plugin
+  vars:
+    ide_name: IntelliJIdea
+    ide_version: 2023.1
+    plugin_id: 8182
+    update_id: 373257
+    plugin_dir: intellij-rust

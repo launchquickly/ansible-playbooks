@@ -48,17 +48,22 @@
 - name: Get latest version id for plugin ID {{ plugin_id }}
   ansible.builtin.shell: curl -s "https://plugins.jetbrains.com/api/plugins/{{ plugin_id }}/updates" | jq -r '.[0].id'
   register: version_request
+  when: update_id is not defined
+
+- name: Identify whether to use update_id or version_request value to download plugin
+  ansible.builtin.set_fact:
+    artifact_id: "{{ update_id if update_id is defined else version_request.stdout }}"
 
 - name: Download zip of plugin
   ansible.builtin.get_url:
-    url: "https://plugins.jetbrains.com/plugin/download?rel=true&updateId={{ version_request.stdout }}"
-    dest: "/tmp/{{ version_request.stdout }}.zip"
+    url: "https://plugins.jetbrains.com/plugin/download?rel=true&updateId={{ artifact_id }}"
+    dest: "/tmp/{{ artifact_id }}.zip"
     mode: '0440'
 
 - name: (MacOSX) Unarchive plugin into {{ plugin_dir }} directory
   ansible.builtin.unarchive:
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins"
-    src: "/tmp/{{ version_request.stdout }}.zip"
+    src: "/tmp/{{ artifact_id }}.zip"
     creates: "{{ ansible_env.HOME }}/Library/Application Support/Jetbrains/{{ item.path | basename }}/plugins/{{ plugin_dir }}"
   with_items: "{{ m_ide_find.files }}"
   when: ansible_distribution == 'MacOSX'
@@ -66,8 +71,7 @@
 - name: (Ubuntu) Unarchive plugin into {{ plugin_dir }} directory
   ansible.builtin.unarchive:
     dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}"
-    src: "/tmp/{{ version_request.stdout }}.zip"
+    src: "/tmp/{{ artifact_id }}.zip"
     creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/{{ item.path | basename }}/{{ plugin_dir }}"
   with_items: "{{ u_ide_find.files }}"
   when: ansible_distribution == 'Ubuntu'
-
