@@ -70,14 +70,16 @@ BECOME password:
 |                           | Generate SSH host file                                       |                    |
 | ai-development-setup      | Install IntelliJ IDE                                         | 2023.1             |
 |                           | Installs Continue DEV plugin                                 | latest             |
+|                           | Confgiure Continue DEV plugin                                |                    |
 |                           | Installs Ollama                                              | latest             |
 |                           | Installs deepseek-coder:6.7b-instruct model                  |                    |
 | aws-setup                 | Installs AWS CLI                                             | v2                 |
 |                           | Installs nvm (node version manager) and Node.js              | v0.39.3 & v18.15.0 |
 |                           | Installs AWS CDK                                             | 2.4.0              |
-| golang-setup              | Installs Golang                                              | 1.20               |
+| golang-setup              | Installs Golang                                              | 1.22               |
 |                           | Configure GOPATH for .zprofile                               |                    |
-|                           | Install GoLand IDE                                           | 2022.3             |
+|                           | Install IntelliJ IDE                                         | 2023.1             |
+|                           | Install Golang IntelliJ Plugin (and others)                  | 368378             |
 |                           | Install utilities:                                           |                    |
 |                           | - [golangci-lint](https://github.com/golangci/golangci-lint) | latest             |
 |                           | - [sqlc](https://sqlc.dev/)                                  | latest             |
