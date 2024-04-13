@@ -5,3 +5,7 @@
     - golangci-lint
     - sqlc
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
+- name: Install Goa utility
+  ansible.builtin.command:
+    cmd: go install goa.design/goa/v3/cmd/goa@v3

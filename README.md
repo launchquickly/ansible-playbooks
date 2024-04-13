@@ -83,6 +83,7 @@ BECOME password:
 |                           | Install utilities:                                           |                    |
 |                           | - [golangci-lint](https://github.com/golangci/golangci-lint) | latest             |
 |                           | - [sqlc](https://sqlc.dev/)                                  | latest             |
+|                           | - [goa](https://goa.design)                                  | v3                 |
 | java-setup                | Install JDK                                                  | Open JDK 17        |
 |                           | Configure java alternative                                   |                    |
 |                           | Gradle                                                       | 8.x.x              |
