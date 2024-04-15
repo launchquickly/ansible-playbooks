@@ -4,7 +4,12 @@
   become: false
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
+- name: Register Ollama as a service
+  ansible.builtin.command: brew services start ollama
+  become: false
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
 - name: Pull Deepseek-Coder-6.7b-Instruct model
   ansible.builtin.command: ollama pull deepseek-coder:6.7b-instruct
-  become: yes
+  become: false
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
