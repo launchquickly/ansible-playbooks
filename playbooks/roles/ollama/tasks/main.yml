@@ -9,7 +9,13 @@
   become: false
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
 
+- name: Pull Code Llama-13b-Instruct model
+  ansible.builtin.command: ollama pull codellama:13b-instruct
+  become: false
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+
 - name: Pull Deepseek-Coder-6.7b-Instruct model
   ansible.builtin.command: ollama pull deepseek-coder:6.7b-instruct
   become: false
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
+

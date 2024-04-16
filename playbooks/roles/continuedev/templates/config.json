@@ -26,10 +26,13 @@
       "model": "mistral-8x7b"
     },
     {
+      "title": "codellama:13b-instruct",
+      "model": "codellama:13b-instruct",
+      "provider": "ollama"
+    },
+    {
       "title": "deepseek-coder:6.7b-instruct",
       "model": "deepseek-coder:6.7b-instruct",
-      "completionOptions": {},
-      "apiBase": "http://localhost:11434",
       "provider": "ollama"
     }
   ],
