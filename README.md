@@ -102,6 +102,7 @@ BECOME password:
 |                           | Install CLion IDE                                            | 2022.3             |
 |                           | Install JetBrains Rust Plugin                                |                    |
 | terraform-setup           | Install HashiCorp Terraform                                  | 1.5.7              |
+|                           | Install AWS CLI                                              | v2                 |
 | vault-setup               | Install HashiCorp Vault   (MacOS only currently)             | latest             |
 
 ## TODO
