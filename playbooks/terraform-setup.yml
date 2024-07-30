@@ -1,0 +1,7 @@
+---
+
+- name: Terraform Setup
+  hosts: localhost
+
+  roles:
+    - { role: terraform }

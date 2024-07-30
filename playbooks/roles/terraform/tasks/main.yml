@@ -1,0 +1,5 @@
+- name: Install Terraform {{ terraform_version }} Homebrew package
+  community.general.homebrew:
+    name: terraform@{{ terraform_version }}
+  become: false
+  when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
