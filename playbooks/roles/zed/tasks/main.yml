@@ -1,0 +1,6 @@
+- name: (MacOSX) Install Zed editor
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  loop:
+    - zed
+  when: ansible_distribution == 'MacOSX'
