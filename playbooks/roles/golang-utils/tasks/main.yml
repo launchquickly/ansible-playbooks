@@ -9,3 +9,7 @@
 - name: Install Goa utility
   ansible.builtin.command:
     cmd: go install goa.design/goa/v3/cmd/goa@v3
+
+- name: Install Go language server (gopls)
+  ansible.builtin.command:
+    cmd: go install golang.org/x/tools/gopls@latest
