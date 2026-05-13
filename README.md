@@ -95,8 +95,8 @@ BECOME password:
 | nodejs-setup              | Installs nvm (node version manager) and Node.js              | v0.39.3 & v18.15.0 |
 |                           | Install WebStorm IDE                                         | 2023.1             |
 | postgres-setup            | Install DataGrip IDE                                         | 2023.1             |
-| python-setup              | Install Python                                               | 3.11               |
-|                           | Install pip, setuptools, wheel, pipenv                       |                    |
+| python-setup              | Install Python                                               | 3.13               |
+|                           | Install pip, setuptools, wheel, pipenv, poetry, black, isort |                    |
 |                           | Install PyCharm IDE                                          | 2022.3             |
 | rust-setup                | Install rustup-init                                          |                    |
 |                           | Install rustup, which installs and manages Rust toolchain    |                    |

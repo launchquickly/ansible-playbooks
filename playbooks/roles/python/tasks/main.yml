@@ -4,4 +4,7 @@
   loop:
     - python@{{ python_version }}
     - pipenv
+    - poetry
+    - black
+    - isort
   when: ansible_distribution == 'MacOSX' or ansible_distribution == 'Ubuntu'
